@@ -120,7 +120,7 @@ redis3m (a C++ Redis client) installation:
 	```
 	Usage :	ASIACCS-17/Client/Test_insert [DataNodeNum] [BegNum] [EndNum] [EqualIndexVersion] [OrderIndex] [BlockSizeInBit] [ModNum]
 
-	- [NodeNum]: the number of nodes.
+	- [DataNodeNum]: the number of nodes.
 	- [BegNum]: the begin of random insertion number.
 	- [EndNum]: the End of random insertion number.
 	- [EqualIndexVersion]: 0 means NO index, 1 means strategy I equal index, 2 means strategy II equal index, 3 means plaintext equal index.
@@ -130,52 +130,44 @@ redis3m (a C++ Redis client) installation:
 	```
 
 
-  * TestCT.sh
+  * Test_Throughput.sh
 	
-	Scripts that generate ciphertext workloads
-
+	Scripts that evaluate throughput of EncKV.
 
 	```
-	Usage : /BlindDB/src/Client/TestCT.sh [NodeNum] [LOOP] [OPTION] [TIME] [SEEDS]
+	Usage : ASIACCS-17/Client/Test_Throughput.sh [NodeNum] [LOOP] [OPTION] [TIME] [MaxBoundary] [SEEDS] [BLOCK_SIZE_INBITS] 
 
 	- [NodeNum]: the number of nodes.
 	- [LOOP]: the number of clients.
-	- [OPTION]: "0" put only workload, "1" get only workload, "2" get heavy workload, "3" put heavy workload.
-	- [TIME]: time duration for the workload.
-	- [SEEDS]:  random seed.
+	- [OPTION]: 0 means use strategy I index, 1 means use strategy II index, 2 means use encrypted order index.
+	- [TIME]: time duration for the throughput test.
+	- [MaxBoundary]: the boundary of generated data.	
+	- [SEEDS]:  random seed for generating test data.
+	- [BlockSizeInBit]: the blocksize of ORE in bit.
 	```
 
+  * Test_latency
 
-  * Ciphertext Latency
-
-	Test the latency of secure PUT/GET operations
-
+	Test the latency of each operations
 
 	```
-	Usage : /BlindDB/src/Client/Ciphertext_latency [DataNodeNum] [KeyLen] [ValLen] [Times]
+	Usage : ASIACCS-17/Client/Test_latency [DataNodeNum] [BegNum] [EndNum] [Times] [QueryIndexType] [BlockSizeInBit]
 
 	- [DataNodeNum]: the number of nodes.
-	- [KeyLen]: the length of key in bytes.
+	- [BegNum]: the begin of random insertion number.
+	- [EndNum]: the End of random insertion number.
 	- [ValLen]: the length of value in bytes.
 	- [Times]: times of operations.
-	```
-
-
-  * Plaintext Cluster Latency
-
-	Test the latency of PUT/GET operations 
-
-	```
-	Usage : /BlindDB/src/Client/Plaintext_cluster_latency [DataNodeNum] [KeyLen] [ValLen] [Times]
-
-	- [DataNodeNum]: the number of nodes.
-	- [KeyLen]: the length of key in bytes.
-	- [ValLen]: the length of value in bytes.
-	- [Times]: times of operations.
+	- [QueryIndexType]: 0 means use strategy I, 1 means use strategy II, 2 means use encrypted order index, 3 means use plaintext equal index, 4 means use plaintext order index.
+	- [BlockSizeInBit]: the blocksize of ORE in bit.
 	```
 
 # REDO EXPERIMENT
 	
+ * You can follow these steps to redo our experiment.
+	
+ * Figure A
+ 
 	
 # MAINTAINER
 
