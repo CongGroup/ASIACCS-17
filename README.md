@@ -86,12 +86,14 @@ redis3m (a C++ Redis client) installation:
 	```
 
  * Configure the environment
+
 	Add the libraries paths to $LD_LIBRARY_PATH.
 
 	```shell
 	* export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 	```
  * Configure IPs and Ports
+
 	Input IP and PORT of each machine to an configuration file in /BlindDB/src/Client/DemoConfig.h
 
 	```cpp
