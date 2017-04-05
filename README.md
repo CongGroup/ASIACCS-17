@@ -306,8 +306,8 @@ redis3m (a C++ Redis client) installation:
 	
 # MAINTAINER
 
- * Current maintainer
+  - Xinyu Wang, City University of Hong Kong, xinyucs@gmail.com
+  - Xingliang Yuan, City University of Hong Kong, xyuancs@gmail.com
+  - Mengyu Yao, City University of Hong Kong, mengycs@gmail.com
+  - Yu Guo, City University of Hong Kong, y.guo@my.cityu.edu.hk
 
-	- Xinyu Wang, City University of Hong Kong, xinyucs@gmail.com
-	- Xingliang Yuan, City University of Hong Kong, xyuancs@gmail.com
-	- Mengyu Yao, City University of Hong Kong, mengycs@gmail.com
