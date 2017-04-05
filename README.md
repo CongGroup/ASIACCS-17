@@ -44,7 +44,7 @@ Environment setup:
 
 Thrift installation:
 
-You can find the HTTP link on 
+You can find the latest HTTP link on https://thrift.apache.org/
 
 ```shell
  * wget http://archive.apache.org/dist/thrift/0.9.2/thrift-0.9.2.tar.gz
@@ -167,6 +167,141 @@ redis3m (a C++ Redis client) installation:
  * You can follow these steps to redo our experiment.
 	
  * Figure A
+ 
+   ```
+   ./Test_insert  9 0   1000 2 0 8 0
+   ./Test_insert  9 0   2000 2 0 8 0
+   ./Test_insert  9 0   4000 2 0 8 0
+   ./Test_insert  9 0   8000 2 0 8 0
+   ./Test_insert  9 0  16000 2 0 8 0
+   ```
+ 
+ * Figure B
+ 
+   ```
+   ./Test_insert  9 0   1000 0 1 8 0
+   ./Test_insert  9 0   2000 0 1 8 0
+   ./Test_insert  9 0   4000 0 1 8 0
+   ./Test_insert  9 0   8000 0 1 8 0
+   ./Test_insert  9 0  16000 0 1 8 0
+   ```
+ * Figure C
+ 
+   ```
+   ./Test_insert  3 0   10000 2 0 8 0
+   ./Test_Throughput.sh 3 40 1 time 1 seed 8
+   （redis-cli flushall)
+
+   ./Test_insert  6 0   10000 2 0 8 0
+   ./Test_Throughput.sh 6 40 1 time 1 seed 8
+   （redis-cli flushall)
+
+   ./Test_insert  9 0   10000 2 0 8 0
+   ./Test_Throughput.sh 9 40 1 time 1 seed 8
+   ```
+ 
+ * Figure D
+ 
+   ```
+   ./Test_insert  3 0   10000 0 1 8 0
+   ./Test_Throughput.sh 3 40 2 time 1 seed 8
+   （redis-cli flushall)
+
+   ./Test_insert  6 0   10000 0 1 8 0
+   ./Test_Throughput.sh 6 40 2 time 1 seed 8
+   （redis-cli flushall)
+
+   ./Test_insert  9 0   10000 0 1 8 0
+   ./Test_Throughput.sh 9 40 2 time 1 seed 8
+   ```
+ 
+ * Figure E
+ 
+   ```
+   ./Test_insert  9 -2000    0 2 0 8 0
+   ./Test_insert  9 -4000    0 2 0 8 0
+   ./Test_insert  9 -8000    0 2 0 8 0
+   ./Test_insert  9 -16000   0 2 0 8 0
+   ./Test_insert  9 -32000   0 2 0 8 0
+   ```
+ * Figure F
+ 
+   ```
+   (YWWQL16)
+   ./Test_insert  9 -2000    0 1 0 8 0
+   ./Test_insert  9 -4000    0 1 0 8 0
+   ./Test_insert  9 -8000    0 1 0 8 0
+   ./Test_insert  9 -16000   0 1 0 8 0
+   ./Test_insert  9 -32000   0 1 0 8 0
+   
+   ./Test_latency 9 2000     2000    10 0 8
+   ./Test_latency 9 4000     4000    10 0 8
+   ./Test_latency 9 8000     8000    10 0 8
+   ./Test_latency 9 16000    16000   10 0 8
+   ./Test_latency 9 32000    32000   10 0 8
+   
+   (Ext)
+   ./Test_insert  9 -2000    0 2 0 8 0
+   ./Test_insert  9 -4000    0 2 0 8 0
+   ./Test_insert  9 -8000    0 2 0 8 0
+   ./Test_insert  9 -16000   0 2 0 8 0
+   ./Test_insert  9 -32000   0 2 0 8 0
+   
+   ./Test_latency 9 2000     2000    10 1 8
+   ./Test_latency 9 4000     4000    10 1 8
+   ./Test_latency 9 8000     8000    10 1 8
+   ./Test_latency 9 16000    16000   10 1 8
+   ./Test_latency 9 32000    32000   10 1 8
+   ```
+
+ * Figure G
+ 
+   ```
+   ./Test_insert  9 -2000    0 0 1 8 0
+   ./Test_latency 9 2000     2000    10 2 8
+   （redis-cli flushall)
+
+   ./Test_insert  9 -4000    0 0 1 8 0
+   ./Test_latency 9 4000     4000    10 2 8
+   （redis-cli flushall)
+
+   ./Test_insert  9 -8000    0 0 1 8 0
+   ./Test_latency 9 8000     8000    10 2 8
+   （redis-cli flushall)
+
+   ./Test_insert  9 -16000   0 0 1 8 0
+   ./Test_latency 9 16000    16000   10 2 8
+   （redis-cli flushall)
+
+   ./Test_insert  9 -32000   0 0 1 8 0
+   ./Test_latency 9 32000    32000   10 2 8
+   ```
+
+ * Figure H
+ 
+   ```
+   (No Index)
+   ./Test_insert  9 0   1000 0 0 8 0
+   ./Test_insert  9 0   2000 0 0 8 0
+   ./Test_insert  9 0   4000 0 0 8 0
+   ./Test_insert  9 0   8000 0 0 8 0
+   ./Test_insert  9 0  16000 0 0 8 0
+
+   (Ext Index)
+   ./Test_insert  9 0   1000 2 0 8 0
+   ./Test_insert  9 0   2000 2 0 8 0
+   ./Test_insert  9 0   4000 2 0 8 0
+   ./Test_insert  9 0   8000 2 0 8 0
+   ./Test_insert  9 0  16000 2 0 8 0
+
+   (Rng Index)
+   ./Test_insert  9 0   1000 0 1 8 0
+   ./Test_insert  9 0   2000 0 1 8 0
+   ./Test_insert  9 0   4000 0 1 8 0
+   ./Test_insert  9 0   8000 0 1 8 0
+   ./Test_insert  9 0  16000 0 1 8 0
+
+   ```
  
 	
 # MAINTAINER
