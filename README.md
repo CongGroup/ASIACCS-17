@@ -78,7 +78,8 @@ redis3m (a C++ Redis client) installation:
 
 
  * Configure the Redis
-	Start the redis server listening on port 6379.
+	
+	- Start the redis server listening on port 6379.
 
 	```shell
 	* redis-server &
