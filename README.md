@@ -223,6 +223,7 @@ redis3m (a C++ Redis client) installation:
    ./Test_insert  9 -8000    0 2 0 8 0
    ./Test_insert  9 -16000   0 2 0 8 0
    ./Test_insert  9 -32000   0 2 0 8 0
+   (when the BegNum is below zero, this command will insert the abs(BegNum) in abs(BegNum) times.)
    ```
  * Figure F
  
