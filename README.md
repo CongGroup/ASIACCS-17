@@ -1,4 +1,4 @@
-# ASIACCS2017
+# EncKV: An Encrypted Key-value Store with Rich Queries
 
  * Introduction
  * Requirements
