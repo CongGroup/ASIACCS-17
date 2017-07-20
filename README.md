@@ -48,8 +48,9 @@ You can find the latest HTTP link on https://thrift.apache.org/
 
 ```shell
  * wget http://archive.apache.org/dist/thrift/0.9.2/thrift-0.9.2.tar.gz
- * tar zxvf 
- * cd 
+ * tar zxvf thrift-0.9.2.tar.gz
+ * cd thrift-0.9.2
+ * ./configure
  * make
  * make install
 ```
